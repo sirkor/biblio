@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+Hi!<BR>
+{% if not request.user %}
+<a href="/auth/login">Войти в качестве преподавателя</a>
+{% endif %}
+<a href="/add/"> Добавить</a>
+{% block login %}{% endblock %}
+{% block thanks %}{% endblock %}
+{% block add %}{% endblock %}
+{% for doc in document %}
+    <p>{{ doc.author }}</p>
+    <p>{{ doc.name }}</p>
+    <p>{{ doc.format }}</p>
+    <p>{{ doc.special }}</p>
+    <p>{{ doc.document_type }}</p>
+    <p><a href="{{ doc.document.url }}">Документ</a></p>
+{% endfor %}
+
+</body>
+</html>
