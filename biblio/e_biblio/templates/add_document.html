@@ -1,6 +1,7 @@
 {% extends 'index.html' %}
 
 {% block add %}
+    <a href="/">Вернуться на стартовую страницу</a>
     <form action = "/add/"method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}

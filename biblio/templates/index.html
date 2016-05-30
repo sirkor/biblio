@@ -7,18 +7,22 @@
 <body>
 Hi!<BR>
 {% if not request.user %}
-<a href="/auth/login">Войти в качестве преподавателя</a>
+    <a href = "/auth/login/">Войти в качестве преподавателя</a>
+
+    {% else %}
+    {{ request.user.username }}<BR>
+    <a href="/auth/logout/">Выйти</a>
 {% endif %}
 <a href="/add/"> Добавить</a>
 {% block login %}{% endblock %}
 {% block thanks %}{% endblock %}
 {% block add %}{% endblock %}
 {% for doc in document %}
-    <p>{{ doc.author }}</p>
-    <p>{{ doc.name }}</p>
-    <p>{{ doc.format }}</p>
-    <p>{{ doc.special }}</p>
-    <p>{{ doc.document_type }}</p>
+    <p>Автор: {{ doc.author }}</p>
+    <p>Название документа: {{ doc.name }}</p>
+    <p>Формат документа: {{ doc.format }}</p>
+    <p>Специальность: {{ doc.special }}</p>
+    <p>Тип документа: {{ doc.document_type }}</p>
     <p><a href="{{ doc.document.url }}">Документ</a></p>
 {% endfor %}
 

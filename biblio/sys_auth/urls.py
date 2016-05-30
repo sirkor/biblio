@@ -3,4 +3,5 @@ from sys_auth import views
 
 urlpatterns = [
     url(r'login/', views.LoginFormView.as_view()),
+    url(r'logout/', views.logout),
 ]

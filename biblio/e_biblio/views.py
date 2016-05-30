@@ -28,10 +28,10 @@ def add_document(request):
     return render_to_response('add_document.html', {'form': form}, context_instance=RequestContext(request))
 
 
-def give_file(request, filename):
+'''def give_file(request, filename):
     link = 'files/' + filename
 
     f = open(link, 'rb')
-    return HttpResponse(f, mimetype='application/octet-stream')
+    return HttpResponse(f, mimetype='application/octet-stream')'''
 
 

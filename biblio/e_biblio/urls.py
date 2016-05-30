@@ -4,9 +4,9 @@ from biblio import settings
 
 urlpatterns = [
     url(r'^$', 'e_biblio.views.index'),
-    url(r'thanks/', 'e_biblio.views.thanks'),
     url(r'add/', 'e_biblio.views.add_document'),
-    url(r'(?P<filename>\w+)', 'e_biblio.views.give_file')
+    url(r'thanks/', 'e_biblio.views.thanks'),
+    #url(r'(?P<filename>\w+)', 'e_biblio.views.give_file')
 ]
 
 from django.conf.urls.static import static
