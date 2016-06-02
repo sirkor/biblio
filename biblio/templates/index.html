@@ -5,18 +5,21 @@
     <title>Title</title>
 </head>
 <body>
-Hi!<BR>
-{% if not request.user %}
+
+{% if not request.user.username %}
     <a href = "/auth/login/">Войти в качестве преподавателя</a>
 
     {% else %}
-    {{ request.user.username }}<BR>
+    Пользователь: {{ request.user.username }}<BR>
     <a href="/auth/logout/">Выйти</a>
 {% endif %}
-<a href="/add/"> Добавить</a>
+<a href="/add/"> Добавить (требуется авторизация)</a>
+<a href="/search/">Поиск</a>
 {% block login %}{% endblock %}
 {% block thanks %}{% endblock %}
 {% block add %}{% endblock %}
+{% block update %}{% endblock %}
+{% block search %}{% endblock %}
 {% for doc in document %}
     <p>Автор: {{ doc.author }}</p>
     <p>Название документа: {{ doc.name }}</p>
@@ -24,6 +27,11 @@ Hi!<BR>
     <p>Специальность: {{ doc.special }}</p>
     <p>Тип документа: {{ doc.document_type }}</p>
     <p><a href="{{ doc.document.url }}">Документ</a></p>
+    {% if request.user.username %}
+    <div><a href="/delete/{{ doc.id }}">Удалить </a> (Внимание, это действие невозможно отменить!)
+        <a href="/update/{{ doc.id }}"> Изменить</a></div>
+    {% endif %}
+    <hr>
 {% endfor %}
 
 </body>

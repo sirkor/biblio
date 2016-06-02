@@ -11,3 +11,6 @@ class Document(models.Model):
     document_type = models.CharField(max_length=25, verbose_name="Тип")
     document = models.FileField(verbose_name="Файл")
     add_date = models.DateTimeField(default=datetime.datetime.now(), verbose_name="Дата добавления")
+
+    class Meta:
+        ordering = ["-add_date"]

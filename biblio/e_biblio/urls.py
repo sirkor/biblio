@@ -4,9 +4,11 @@ from biblio import settings
 
 urlpatterns = [
     url(r'^$', 'e_biblio.views.index'),
-    url(r'add/', 'e_biblio.views.add_document'),
     url(r'thanks/', 'e_biblio.views.thanks'),
-    #url(r'(?P<filename>\w+)', 'e_biblio.views.give_file')
+    url(r'add/', 'e_biblio.views.add_document'),
+    url(r'delete/(?P<id>[0-9]+)', 'e_biblio.views.del_document'),
+    url(r'update/(?P<id>[0-9]+)', 'e_biblio.views.update_view'),
+    url(r'search/', 'e_biblio.views.search_view'),
 ]
 
 from django.conf.urls.static import static
