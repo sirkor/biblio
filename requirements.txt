@@ -1,5 +1,5 @@
 decorator==4.0.9
-Django==1.8
+Django==1.11.28
 pep8==1.7.0
 psycopg2==2.6.1
 self==0.0.5
